@@ -43,6 +43,21 @@
   --road-surface: linear-gradient(180deg, #b8ab98 0%, #a89880 50%, #98897a 100%);
   --wedding-road: linear-gradient(180deg, #c0b4a8 0%, #b0a496 50%, #a09488 100%);
 
+  /* Royal Envelope Light Theme */
+  --env-overlay-bg: radial-gradient(circle at center, rgba(248, 240, 227, 0.96) 0%, rgba(235, 222, 204, 0.98) 100%);
+  --env-bg: #fffdf9;
+  --env-shadow: 0 25px 60px rgba(110, 80, 40, 0.18), 0 0 35px rgba(201, 169, 110, 0.3);
+  --env-interior: linear-gradient(135deg, #f7efe1 0%, #ede1cb 100%);
+  --env-card-bg: #ffffff;
+  --env-card-shadow: 0 4px 18px rgba(110, 80, 40, 0.12);
+  --env-pocket-left: #f5ede1;
+  --env-pocket-right: #efe5d5;
+  --env-pocket-bottom: #e8dcc8;
+  --env-flap: #dfd0b8;
+  --env-flap-shadow: rgba(110, 80, 40, 0.2);
+  --env-instructions-color: #7b4f2e;
+  --env-instructions-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+
   --font-script: 'Great Vibes', cursive;
   --font-serif: 'Playfair Display', serif;
   --font-elegant: 'Cormorant Garamond', serif;
@@ -85,6 +100,21 @@
   --wedding-sky: linear-gradient(180deg, #182234 0%, #291c2b 50%, #342028 100%);
   --road-surface: linear-gradient(180deg, #2a313d 0%, #202630 50%, #171c24 100%);
   --wedding-road: linear-gradient(180deg, #2a313d 0%, #202630 50%, #171c24 100%);
+
+  /* Royal Envelope Dark Theme */
+  --env-overlay-bg: radial-gradient(circle at center, rgba(14, 18, 27, 0.94) 0%, rgba(6, 8, 13, 0.98) 100%);
+  --env-bg: #2a1f18;
+  --env-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(201, 169, 110, 0.25);
+  --env-interior: linear-gradient(135deg, #1f1612 0%, #2e2017 100%);
+  --env-card-bg: #121722;
+  --env-card-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  --env-pocket-left: #3d2d22;
+  --env-pocket-right: #36281e;
+  --env-pocket-bottom: #2e2219;
+  --env-flap: #4a382c;
+  --env-flap-shadow: rgba(0, 0, 0, 0.35);
+  --env-instructions-color: var(--gold-light);
+  --env-instructions-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 html, body {
@@ -180,14 +210,14 @@ main {
 .envelope-overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(14, 18, 27, 0.94) 0%, rgba(6, 8, 13, 0.98) 100%);
+  background: var(--env-overlay-bg);
   z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease, background 0.4s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -219,20 +249,22 @@ main {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #2a1f18;
+  background: var(--env-bg);
   border-radius: 12px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(201, 169, 110, 0.25);
+  box-shadow: var(--env-shadow);
   border: 1.5px solid var(--gold);
   overflow: visible;
   cursor: pointer;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Inside pocket back */
 .env-back-interior {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1f1612 0%, #2e2017 100%);
+  background: var(--env-interior);
   border-radius: 10px;
+  transition: background 0.4s ease;
 }
 
 /* Miniature invitation card that slides up */
@@ -242,10 +274,10 @@ main {
   left: 20px;
   right: 20px;
   height: 250px;
-  background: var(--cream);
+  background: var(--env-card-bg);
   border-radius: 8px;
   border: 1.5px solid var(--gold);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+  box-shadow: var(--env-card-shadow);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -253,7 +285,7 @@ main {
   justify-content: center;
   padding: 16px;
   text-align: center;
-  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .opening .env-invitation-card {
@@ -287,32 +319,35 @@ main {
 .env-pocket-left {
   position: absolute;
   inset: 0;
-  border-left: 220px solid #3d2d22;
+  border-left: 220px solid var(--env-pocket-left);
   border-top: 145px solid transparent;
   border-bottom: 145px solid transparent;
   z-index: 3;
   pointer-events: none;
+  transition: border-color 0.4s ease;
 }
 
 .env-pocket-right {
   position: absolute;
   inset: 0;
-  border-right: 220px solid #36281e;
+  border-right: 220px solid var(--env-pocket-right);
   border-top: 145px solid transparent;
   border-bottom: 145px solid transparent;
   z-index: 3;
   pointer-events: none;
+  transition: border-color 0.4s ease;
 }
 
 .env-pocket-bottom {
   position: absolute;
   inset: 0;
-  border-bottom: 165px solid #2e2219;
+  border-bottom: 165px solid var(--env-pocket-bottom);
   border-left: 220px solid transparent;
   border-right: 220px solid transparent;
   border-radius: 0 0 10px 10px;
   z-index: 4;
   pointer-events: none;
+  transition: border-color 0.4s ease;
 }
 
 /* Top flap */
@@ -322,13 +357,13 @@ main {
   left: 0;
   right: 0;
   height: 0;
-  border-top: 155px solid #4a382c;
+  border-top: 155px solid var(--env-flap);
   border-left: 220px solid transparent;
   border-right: 220px solid transparent;
   transform-origin: top center;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
   z-index: 5;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 4px 8px var(--env-flap-shadow));
 }
 
 .opening .env-flap {
@@ -382,9 +417,9 @@ main {
   font-family: var(--font-elegant);
   font-size: 1.15rem;
   font-style: italic;
-  color: var(--gold-light);
+  color: var(--env-instructions-color);
   letter-spacing: 0.05em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  text-shadow: var(--env-instructions-shadow);
   animation: fadeInOut 2.5s ease-in-out infinite;
 }
 

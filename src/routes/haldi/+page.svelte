@@ -4,7 +4,7 @@
   let hd = $state(0), hh = $state(0), hm = $state(0), hs = $state(0);
   let wd = $state(0), wh = $state(0), wm = $state(0), ws = $state(0);
 
-  const haldiDate   = new Date('2026-12-13T10:00:00+05:30');
+  const haldiDate   = new Date('2026-12-13T11:30:00+05:30');
   const weddingDate = new Date('2026-12-14T12:21:00+05:30');
 
   onMount(() => {
@@ -32,8 +32,8 @@
 </script>
 
 <svelte:head>
-  <title>Shubham & Shreya | Haldi & Wedding Invitation</title>
-  <meta name="description" content="Join the Haldi ceremony (13th Dec 2026) and Wedding (14th Dec 2026) of Shubham & Shreya in Goa." />
+  <title>Shreya & Shubham | Haldi & Wedding Invitation</title>
+  <meta name="description" content="Join the Haldi ceremony (13th Dec 2026) and Wedding (14th Dec 2026) of Shreya & Shubham  in Goa." />
 </svelte:head>
 
 <!-- Single unified card -->
@@ -53,10 +53,10 @@
          HALDI CEREMONY
     ═══════════════════════════════════════ -->
 
-    <!-- Haldi Groom Medallion Avatar -->
+    <!-- Haldi Bride Medallion Avatar -->
     <div class="avatar-wrap animate-scale-in">
       <div class="avatar-frame">
-        <img src="/groom_haldi_avatar.png" alt="Shubham - Haldi Ceremony" class="couple-avatar" />
+        <img src="/bride_haldi_avatar.png" alt="Shreya - Haldi Ceremony" class="couple-avatar" />
         <span class="avatar-sparkle s-top">🌿</span>
         <span class="avatar-sparkle s-right">🌼</span>
         <span class="avatar-sparkle s-left">✨</span>
@@ -66,15 +66,15 @@
     <p class="invite-label animate-fade-in delay-200">YOU ARE INVITED TO</p>
     <p class="script-sub haldi-sub animate-fade-in delay-300">the haldi ceremony of</p>
 
-    <!-- Main name - Groom only for Haldi -->
+    <!-- Main name - Bride only for Haldi -->
     <div class="name-container">
-      <h1 class="name haldi-name animate-fade-in-up delay-400">Shubham</h1>
+      <h1 class="name haldi-name animate-fade-in-up delay-400">Shreya</h1>
     </div>
 
     <div class="ornament haldi-orn animate-fade-in delay-500">✦ ——— ✦ ——— ✦</div>
 
     <div class="info-blurb reveal-scale">
-      <p>The sacred Haldi ceremony marks the beginning of our wedding celebrations. Join us to bless Shubham with turmeric, love, and joy as we begin this beautiful journey! 🌸</p>
+      <p>The sacred Haldi ceremony marks the beginning of our wedding celebrations. Join us to bless Shreya with turmeric, love, and joy as we begin this beautiful journey! 🌸</p>
     </div>
 
     <div class="details-grid reveal-left">
@@ -85,18 +85,42 @@
       </div>
       <div class="d-sep haldi-sep"></div>
       <div class="detail-cell">
+        <span class="d-icon">🕚</span>
+        <span class="d-label">TIME</span>
+        <span class="d-val haldi-val">11:30 am onwards</span>
+      </div>
+      <div class="d-sep haldi-sep"></div>
+      <div class="detail-cell">
         <span class="d-icon">🌿</span>
         <span class="d-label">CEREMONY</span>
         <span class="d-val haldi-val">Haldi Ceremony</span>
       </div>
     </div>
 
+    <!-- Dress Code Section -->
+    <div class="dress-code-card reveal-scale" id="haldi-dress-code">
+      <div class="dc-badge">
+        <span class="dc-icon">👗</span>
+        <span class="dc-label">DRESS CODE</span>
+        <span class="dc-icon">👔</span>
+      </div>
+      <p class="dc-theme">Shades of Blue</p>
+      <p class="dc-sub">We’d love for you to celebrate with us in your favourite shades of blue 💙</p>
+      <div class="blue-palette" aria-label="Shades of Blue palette">
+        <span class="palette-swatch swatch-powder" title="Powder Blue"></span>
+        <span class="palette-swatch swatch-sky" title="Sky Blue"></span>
+        <span class="palette-swatch swatch-cerulean" title="Cerulean"></span>
+        <span class="palette-swatch swatch-royal" title="Royal Blue"></span>
+        <span class="palette-swatch swatch-navy" title="Navy Blue"></span>
+      </div>
+    </div>
+
     <div class="venue-card haldi-card reveal-right">
       <span class="venue-pin">📍</span>
       <span class="venue-tag">LOCATION</span>
-      <p class="venue-name">Naroji Wada</p>
-      <p class="venue-addr">Morjim, Pernem, Goa</p>
-      <a href="https://maps.app.goo.gl/4sMsVwHBCrSJNCep7" target="_blank" rel="noopener noreferrer"
+      <p class="venue-name">Nandanvan Hall</p>
+      <p class="venue-addr">Patantali, Ponda, Goa</p>
+      <a href="https://maps.app.goo.gl/wnAmizQZKHEQ8jLL8" target="_blank" rel="noopener noreferrer"
         class="map-btn haldi-btn" id="haldi-maps-btn" aria-label="Open Haldi venue on Google Maps">
         🗺️ View on Google Maps
       </a>
@@ -115,7 +139,7 @@
         <div class="cs-road-surface"></div>
         <div class="cs-dashes"></div>
         <div class="cs-car-wrap">
-          <img src="/couple_car.png" class="cs-car-img" alt="Shubham and Shreya in a decorated car" />
+          <img src="/couple_car.png" class="cs-car-img" alt="Shreya heading to the Haldi" />
         </div>
         <div class="cs-caption">Heading to the Haldi!</div>
         <div class="cs-pin" aria-hidden="true">📍</div>
@@ -123,8 +147,8 @@
     </div>
 
     <div class="map-wrap reveal-scale">
-      <iframe src="https://maps.google.com/maps?q=Morjim+Pernem+Goa&output=embed&z=14"
-        title="Haldi Venue" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://maps.google.com/maps?q=Nandanvan+Hall+Patantali+Ponda+Goa&output=embed&z=15"
+        title="Haldi Venue - Nandanvan Hall, Patantali, Ponda, Goa" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <!-- Countdown Haldi -->
@@ -159,7 +183,7 @@
     <!-- Bride and Groom Character Avatar (Replaced S S symbol) -->
     <div class="avatar-wrap reveal-scale">
       <div class="avatar-frame">
-        <img src="/couple_avatar.png" alt="Shubham & Shreya - Bride and Groom" class="couple-avatar" />
+        <img src="/couple_avatar.png" alt="Shreya & Shubham - Bride and Groom" class="couple-avatar" />
         <span class="avatar-sparkle s-top">✨</span>
         <span class="avatar-sparkle s-right">💖</span>
         <span class="avatar-sparkle s-left">✨</span>
@@ -171,7 +195,7 @@
 
     <!-- Main wedding names with ample line-height so they never get cut off -->
     <div class="name-container">
-      <h1 class="name groom reveal-left">Shubham</h1>
+      <h1 class="name bride reveal-left">Shreya</h1>
     </div>
     <div class="weds-row reveal">
       <span class="w-line"></span>
@@ -181,7 +205,7 @@
       <span class="w-line r"></span>
     </div>
     <div class="name-container">
-      <h1 class="name bride reveal-right">Shreya</h1>
+      <h1 class="name groom reveal-right">Shubham</h1>
     </div>
 
     <div class="ornament reveal">✦ ——— ✦ ——— ✦</div>
@@ -230,7 +254,7 @@
         <div class="cs-road-surface wedding-road"></div>
         <div class="cs-dashes"></div>
         <div class="cs-car-wrap">
-          <img src="/couple_car.png" class="cs-car-img" alt="Shubham and Shreya heading to the wedding" />
+          <img src="/couple_car.png" class="cs-car-img" alt="Shreya and Shubham heading to the wedding" />
         </div>
         <div class="cs-caption">Just Married! 💍</div>
         <div class="cs-pin" aria-hidden="true">📍</div>
@@ -258,7 +282,7 @@
 
     <div class="contact-row reveal">
       <span class="orn-small">✦ ——— ✦</span>
-      <a href="tel:9049252232" class="contact-link" id="haldi-contact">📞 Contact: 9049252232</a>
+      <a href="tel:9011025865" class="contact-link" id="haldi-contact">📞 Contact: 9011025865</a>
       <span class="orn-small">✦ ——— ✦</span>
     </div>
 
@@ -436,6 +460,92 @@
   .d-label { font-family: var(--font-sans); font-size: 0.56rem; letter-spacing: 0.16em; font-weight: 700; color: var(--text-medium); text-transform: uppercase; }
   .haldi-val { color: var(--haldi-accent); }
   .d-val sup { font-size: 0.6em; }
+
+  /* ── Dress Code Card ── */
+  .dress-code-card {
+    background: linear-gradient(135deg, rgba(30, 77, 140, 0.08) 0%, rgba(77, 144, 254, 0.05) 50%, rgba(212, 160, 23, 0.08) 100%);
+    border: 1px solid rgba(77, 144, 254, 0.32);
+    border-radius: 14px;
+    padding: 16px 20px;
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 14px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 18px rgba(30, 77, 140, 0.08);
+  }
+  .dc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dc-icon {
+    font-size: 0.95rem;
+  }
+  .dc-label {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    color: #1e5ba3;
+    text-transform: uppercase;
+  }
+  :global([data-theme="dark"]) .dc-label {
+    color: #93c5fd;
+  }
+  .dc-theme {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 3.2vw, 1.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: linear-gradient(135deg, #1e4d8c 0%, #2563eb 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 2px 0 0;
+  }
+  :global([data-theme="dark"]) .dc-theme {
+    background: linear-gradient(135deg, #e0f2fe 0%, #60a5fa 50%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .dc-sub {
+    font-family: var(--font-elegant);
+    font-size: clamp(0.85rem, 2.2vw, 0.94rem);
+    color: var(--text-medium);
+    font-style: italic;
+    margin: 0;
+  }
+  .blue-palette {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .palette-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+  }
+  .palette-swatch:hover {
+    transform: scale(1.22);
+    box-shadow: 0 4px 12px rgba(30, 77, 140, 0.4);
+  }
+  .swatch-powder   { background: #bae6fd; }
+  .swatch-sky      { background: #60a5fa; }
+  .swatch-cerulean { background: #2563eb; }
+  .swatch-royal    { background: #1d4ed8; }
+  .swatch-navy     { background: #1e1b4b; }
 
   /* ── Venue card ── */
   .venue-card {

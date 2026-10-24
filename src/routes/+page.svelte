@@ -20,8 +20,8 @@
 </script>
 
 <svelte:head>
-  <title>Shubham Weds Shreya | Wedding Invitation</title>
-  <meta name="description" content="You are cordially invited to the wedding of Shubham & Shreya on 14th December 2026 at Shree Varadsiddhi Vinayak Sabhagruh, Parra, Goa." />
+  <title>Shreya Weds Shubham | Wedding Invitation</title>
+  <meta name="description" content="You are cordially invited to the wedding of Shreya & Shubham  on 14th December 2026 at Shree Varadsiddhi Vinayak Sabhagruh, Parra, Goa." />
 </svelte:head>
 
 <!-- Single unified card -->
@@ -39,7 +39,7 @@
     <!-- Bride and Groom Character Avatar (Replaced S S symbol) -->
     <div class="avatar-wrap animate-scale-in">
       <div class="avatar-frame">
-        <img src="/couple_avatar.png" alt="Shubham & Shreya - Bride and Groom" class="couple-avatar" />
+        <img src="/couple_avatar.png" alt="Shreya & Shubham - Bride and Groom" class="couple-avatar" />
         <span class="avatar-sparkle s-top">✨</span>
         <span class="avatar-sparkle s-right">💖</span>
         <span class="avatar-sparkle s-left">✨</span>
@@ -51,7 +51,7 @@
 
     <!-- Main names with ample line-height and padding so they never get cut off -->
     <div class="name-container">
-      <h1 class="name groom animate-fade-in-up delay-400">Shubham</h1>
+      <h1 class="name bride animate-fade-in-up delay-400">Shreya</h1>
     </div>
 
     <div class="weds-row animate-scale-in delay-500">
@@ -63,7 +63,7 @@
     </div>
 
     <div class="name-container">
-      <h1 class="name bride animate-fade-in-up delay-600">Shreya</h1>
+      <h1 class="name groom animate-fade-in-up delay-600">Shubham</h1>
     </div>
 
     <div class="ornament animate-fade-in delay-700">✦ ——— ✦ ——— ✦</div>
@@ -114,7 +114,7 @@
         <div class="cs-road-surface wedding-road"></div>
         <div class="cs-dashes"></div>
         <div class="cs-car-wrap">
-          <img src="/couple_car.png" class="cs-car-img" alt="Shubham and Shreya heading to the wedding" />
+          <img src="/couple_car.png" class="cs-car-img" alt="Shreya and Shubham heading to the wedding" />
         </div>
         <div class="cs-caption">Just Married! 💍</div>
         <div class="cs-pin" aria-hidden="true">📍</div>
@@ -146,7 +146,7 @@
     <!-- Contact -->
     <div class="contact-row reveal">
       <span class="orn-small">✦ ——— ✦</span>
-      <a href="tel:9049252232" class="contact-link" id="wedding-contact">📞 Contact: 9049252232</a>
+      <a href="tel:9011025865" class="contact-link" id="wedding-contact">📞 Contact: 9011025865</a>
       <span class="orn-small">✦ ——— ✦</span>
     </div>
 

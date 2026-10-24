@@ -5,7 +5,7 @@
 
   let { children }: LayoutProps = $props();
 
-  let isDarkMode = $state(true);
+  let isDarkMode = $state(false);
   let isEnvelopeOpened = $state(false);
   let isEnvelopeOpening = $state(false);
 
@@ -65,10 +65,10 @@
     isDarkMode = !isDarkMode;
     if (isDarkMode) {
       document.documentElement.setAttribute('data-theme', 'dark');
-      try { localStorage.setItem('theme', 'dark'); } catch {}
+      try { localStorage.setItem('wedding_theme_choice', 'dark'); } catch {}
     } else {
       document.documentElement.removeAttribute('data-theme');
-      try { localStorage.setItem('theme', 'light'); } catch {}
+      try { localStorage.setItem('wedding_theme_choice', 'light'); } catch {}
     }
   }
 
@@ -89,15 +89,16 @@
   }
 
   onMount(() => {
-    // Dark mode is default: check if user explicitly chose light
+    // Light mode is default: check if user explicitly chose dark
     try {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'light') {
-        isDarkMode = false;
-        document.documentElement.removeAttribute('data-theme');
-      } else {
+      localStorage.removeItem('theme'); // Clear legacy theme key
+      const saved = localStorage.getItem('wedding_theme_choice');
+      if (saved === 'dark') {
         isDarkMode = true;
         document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        isDarkMode = false;
+        document.documentElement.removeAttribute('data-theme');
       }
     } catch {}
 
@@ -179,7 +180,7 @@
 
       <!-- Card that slides out -->
       <div class="env-invitation-card">
-        <h2 class="env-card-title">Shubham &amp; Shreya</h2>
+        <h2 class="env-card-title">Shreya &amp; Shubham</h2>
         <p class="env-card-sub">Together with their families</p>
       </div>
 
