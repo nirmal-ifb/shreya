@@ -83,6 +83,12 @@
       </div>
       <div class="d-sep"></div>
       <div class="detail-cell">
+        <span class="d-icon">🍽️</span>
+        <span class="d-label">LUNCH</span>
+        <span class="d-val">12:30 pm onwards</span>
+      </div>
+      <div class="d-sep"></div>
+      <div class="detail-cell">
         <span class="d-icon">👥</span>
         <span class="d-label">RECEPTION</span>
         <span class="d-val">2:00 pm onwards</span>
