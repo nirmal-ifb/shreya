@@ -231,28 +231,21 @@ main {
 
 .env-container {
   position: relative;
-  width: 440px;
-  height: 290px;
+  width: min(420px, calc(100vw - 44px));
+  aspect-ratio: 440 / 290;
+  max-height: calc(100dvh - 150px);
   perspective: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-origin: center center;
+  margin: 0 auto;
   flex-shrink: 0;
-  /* Responsive safe scaling across all mobile viewports:
-     Guarantees generous breathing room on left & right so ends never touch edges or bezels,
-     and ensures top flap / card never get cut off vertically on shorter mobile screens */
-  --scale-w: calc((100vw - 64px) / 440);
-  --scale-h: calc((100dvh - 170px) / 380);
-  --env-scale: min(1, var(--scale-w), var(--scale-h));
-  transform: scale(var(--env-scale));
 }
 
 .envelope {
   position: relative;
-  width: 440px;
-  height: 290px;
-  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
   background: var(--env-bg);
   border-radius: 12px;
   box-shadow: var(--env-shadow);
@@ -274,10 +267,10 @@ main {
 /* Miniature invitation card that slides up */
 .env-invitation-card {
   position: absolute;
-  top: 14px;
-  left: 20px;
-  right: 20px;
-  height: 250px;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  height: 86%;
   background: var(--env-card-bg);
   border-radius: 8px;
   border: 1.5px solid var(--gold);
@@ -287,7 +280,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: clamp(8px, 3vw, 16px);
   text-align: center;
   overflow: hidden;
   transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, box-shadow 0.4s ease;
@@ -316,7 +309,7 @@ main {
 }
 
 .opening .env-invitation-card {
-  transform: translateY(-140px) scale(1.04);
+  transform: translateY(-55%) scale(1.03);
 }
 
 .env-card-ornament {
@@ -329,58 +322,55 @@ main {
 
 .env-card-title {
   font-family: var(--font-script);
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 5.5vw, 2.2rem);
   color: var(--brown);
   line-height: 1.2;
-  margin: 6px 0;
+  margin: 4px 0;
   position: relative;
   z-index: 2;
 }
 
 .env-card-sub {
   font-family: var(--font-elegant);
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 2.8vw, 0.95rem);
   font-style: italic;
   color: var(--text-medium);
   position: relative;
   z-index: 2;
 }
 
-/* Envelope pockets (front flaps) */
+/* Envelope pockets (front flaps) - 100% fluid clip-path polygons with zero overflow */
 .env-pocket-left {
   position: absolute;
   inset: 0;
-  border-left: 220px solid var(--env-pocket-left);
-  border-top: 145px solid transparent;
-  border-bottom: 145px solid transparent;
-  border-radius: 11px 0 0 11px;
+  background: var(--env-pocket-left);
+  clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
+  border-radius: 10.5px;
   z-index: 3;
   pointer-events: none;
-  transition: border-color 0.4s ease;
+  transition: background 0.4s ease;
 }
 
 .env-pocket-right {
   position: absolute;
   inset: 0;
-  border-right: 220px solid var(--env-pocket-right);
-  border-top: 145px solid transparent;
-  border-bottom: 145px solid transparent;
-  border-radius: 0 11px 11px 0;
+  background: var(--env-pocket-right);
+  clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
+  border-radius: 10.5px;
   z-index: 3;
   pointer-events: none;
-  transition: border-color 0.4s ease;
+  transition: background 0.4s ease;
 }
 
 .env-pocket-bottom {
   position: absolute;
   inset: 0;
-  border-bottom: 165px solid var(--env-pocket-bottom);
-  border-left: 220px solid transparent;
-  border-right: 220px solid transparent;
-  border-radius: 0 0 11px 11px;
+  background: var(--env-pocket-bottom);
+  clip-path: polygon(0% 100%, 50% 46%, 100% 100%);
+  border-radius: 10.5px;
   z-index: 4;
   pointer-events: none;
-  transition: border-color 0.4s ease;
+  transition: background 0.4s ease;
 }
 
 /* Top flap */
@@ -389,13 +379,12 @@ main {
   top: 0;
   left: 0;
   right: 0;
-  height: 0;
-  border-top: 155px solid var(--env-flap);
-  border-left: 220px solid transparent;
-  border-right: 220px solid transparent;
-  border-radius: 11px 11px 0 0;
+  height: 100%;
+  background: var(--env-flap);
+  clip-path: polygon(0% 0%, 50% 55%, 100% 0%);
+  border-radius: 10.5px 10.5px 0 0;
   transform-origin: top center;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease;
   z-index: 5;
   filter: drop-shadow(0 4px 8px var(--env-flap-shadow));
 }
@@ -408,11 +397,11 @@ main {
 /* Golden Wax Seal Button */
 .wax-seal {
   position: absolute;
-  top: 145px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
+  width: clamp(56px, 15vw, 70px);
+  height: clamp(56px, 15vw, 70px);
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #ffd700 0%, #d4a017 50%, #8b6200 100%);
   border: 2px solid #ffe97d;
