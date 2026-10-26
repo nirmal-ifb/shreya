@@ -216,7 +216,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
+  overflow: hidden;
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease, background 0.4s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -237,18 +238,21 @@ main {
   align-items: center;
   justify-content: center;
   transform-origin: center center;
-}
-
-@media (max-width: 480px) {
-  .env-container {
-    transform: scale(calc((100vw - 32px) / 440));
-  }
+  flex-shrink: 0;
+  /* Responsive safe scaling across all mobile viewports:
+     Guarantees generous breathing room on left & right so ends never touch edges or bezels,
+     and ensures top flap / card never get cut off vertically on shorter mobile screens */
+  --scale-w: calc((100vw - 64px) / 440);
+  --scale-h: calc((100dvh - 170px) / 380);
+  --env-scale: min(1, var(--scale-w), var(--scale-h));
+  transform: scale(var(--env-scale));
 }
 
 .envelope {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 440px;
+  height: 290px;
+  box-sizing: content-box;
   background: var(--env-bg);
   border-radius: 12px;
   box-shadow: var(--env-shadow);
@@ -285,7 +289,30 @@ main {
   justify-content: center;
   padding: 16px;
   text-align: center;
+  overflow: hidden;
   transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.env-invitation-card::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed var(--border-inner-color);
+  border-radius: 5px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.env-invitation-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 .opening .env-invitation-card {
@@ -306,6 +333,8 @@ main {
   color: var(--brown);
   line-height: 1.2;
   margin: 6px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .env-card-sub {
@@ -313,6 +342,8 @@ main {
   font-size: 0.95rem;
   font-style: italic;
   color: var(--text-medium);
+  position: relative;
+  z-index: 2;
 }
 
 /* Envelope pockets (front flaps) */
@@ -322,6 +353,7 @@ main {
   border-left: 220px solid var(--env-pocket-left);
   border-top: 145px solid transparent;
   border-bottom: 145px solid transparent;
+  border-radius: 11px 0 0 11px;
   z-index: 3;
   pointer-events: none;
   transition: border-color 0.4s ease;
@@ -333,6 +365,7 @@ main {
   border-right: 220px solid var(--env-pocket-right);
   border-top: 145px solid transparent;
   border-bottom: 145px solid transparent;
+  border-radius: 0 11px 11px 0;
   z-index: 3;
   pointer-events: none;
   transition: border-color 0.4s ease;
@@ -344,7 +377,7 @@ main {
   border-bottom: 165px solid var(--env-pocket-bottom);
   border-left: 220px solid transparent;
   border-right: 220px solid transparent;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 11px 11px;
   z-index: 4;
   pointer-events: none;
   transition: border-color 0.4s ease;
@@ -360,6 +393,7 @@ main {
   border-top: 155px solid var(--env-flap);
   border-left: 220px solid transparent;
   border-right: 220px solid transparent;
+  border-radius: 11px 11px 0 0;
   transform-origin: top center;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
   z-index: 5;

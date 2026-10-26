@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import CardBackground from '../../lib/CardBackground.svelte';
 
   let hd = $state(0), hh = $state(0), hm = $state(0), hs = $state(0);
   let wd = $state(0), wh = $state(0), wm = $state(0), ws = $state(0);
@@ -38,6 +39,8 @@
 
 <!-- Single unified card -->
 <div class="page">
+  <CardBackground theme="haldi" />
+
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
   <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />

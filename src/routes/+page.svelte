@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import CardBackground from '../lib/CardBackground.svelte';
 
   let days = $state(0), hours = $state(0), minutes = $state(0), seconds = $state(0);
   const weddingDate = new Date('2026-12-14T12:21:00+05:30');
@@ -26,6 +27,8 @@
 
 <!-- Single unified card -->
 <div class="page">
+  <CardBackground theme="wedding" />
+
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
   <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />
